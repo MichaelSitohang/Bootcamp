@@ -1,6 +1,6 @@
 const readline = require("node:readline");
 const { stdin: input, stdout: output } = require("node:process");
-const { writeFileSync } = require("node:fs");
+const { writeFileSync, readFileSync } = require("node:fs");
 const rl = readline.createInterface({ input, output });
 
 const val = require("validator");
@@ -13,8 +13,15 @@ rl.question("Sebutkan Nama Kamu", (nama) => {
         val.isMobilePhone(nomorhp) &&
         val.isEmail(email)
       ) {
-        const data = `nama kamu adalah ${nama} \n nomor kamu adalah ${nomorhp}\n email kamu adalah ${email}`;
-        writeFileSync(`jawaban_tugasharike3`, data);
+        //membuat objek yang berisi data yang dimasukkan oleh pengguna
+        const data = { nama, nomorhp, email };
+
+        const file = readFileSync("data/contacts.json", "utf-8");
+        const contacts = JSON.parse(file);
+        contacts.push(data);
+
+        //menyimpan objek sebagai JSON string kedalam file
+        writeFileSync("data/contacts.json", JSON.stringify(contacts));
         console.log("Data kamu telah tersimpan");
 
         rl.close();
