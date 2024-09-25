@@ -1,0 +1,43 @@
+Middleware
+ User  --- server
+ req    --- res
+
+ user meminta request dan server memberikan respon
+ Middleware adalah sebuah fungsi yang dimana memiliki akses untuk meminta request objek dan 
+ middleware 
+ ada di data base web server dan web aplication
+
+ aplikasi akan menerima request dan memberikan response
+ res sen res render respon yang akan diberikan
+
+ aplikasi yang berjalan setelah request dibuat dan sebelum memberikan respon
+
+ Express middleware
+Built ini Middleware = bawaan
+Third party middleware = EJS
+User-define middleware
+appication - application level Middleware
+            - reoter level middleware
+            - eror handling : 
+            - jadi kalau ada data yang tidak bisa di akses di buat if(err) agar komputer tidak crash
+                maksudnya komputer tidak kebingungan apabila sebuah request yang diminta tidak dapat dikerjakan. apabila dibuat eror handling maka komputer selesai tugasnya dan menunggu meminta request selanjutnya
+
+
+sekarang mencoba middleware , akes ke expressjs - using middleware - 
+lalu masukkan kode ini sebelum app.get
+app.use((req, res, next) => {
+  console.log("Time:", Date.now());
+  next();
+});
+
+
+ada fungsi tambahan yaitu fungsi next dan app user
+
+angka yang ada di CLI itu jumlah detik 
+
+metode upload data 
+1. send ke hdd 2. send ke ram lalu ke hdd
+kalau misalnya ditengah tengah ada server mati 
+
+
+learning to code

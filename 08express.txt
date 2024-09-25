@@ -1,0 +1,43 @@
+express js
+webserver juga tapi dia bentuknya modul yang bundleing agar leih mudah lagi
+
+cepat, simple / mudah , unopinionated/ rules nya tidak pasti (bebas), bisa membuat struktur aplikasinya sendiri. 
+
+express js ada di node js
+express js itu modul dimana node js sebagai framework nya
+
+monggoDB,ExpressJs,React
+fitur bisa mengelola request http dengan mudah, request hppt ada metode get push delete dan sebagainya (untuk mempelajari http method)
+
+MVC (model view controller) dimana modelnya ini adalah data base, view itu tampilan dan reaksi akan diterima controller
+model - controller - view - model - controller - view
+
+view rendering engine
+middleware - vitur yang penting contoh penghubung dari pc ke printer
+
+ExpressJs sangat bagus dan terkenal, 
+opinionated - ada rulesnya, ikuti stepnya, 
+
+pelajari salah satu template engine 
+
+data base intinya 2 yaitu sql dan no sql
+pelajari database pelajari bahasanya
+mysql , postgreSQL
+
+pakai postgreSQL 
+ExpressJs berjalan secara blocking
+
+bagaimana cara kita agar mengirimkan file dengan ExpressJs
+rest.sendfile
+silakan cari send file di express js
+
+bisa juga seperti ini :
+res.sendFile(".src/page/index.html", {root : __dirname});
+
+
+
+lanjut id 
+
+query dalam html request caraa pakainya
+id itu kayak demand optionnya true
+query 

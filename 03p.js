@@ -23,7 +23,7 @@ rl.question("Siapa nama kamu ? ", (nama) => {
       const contact = JSON.parse(file);
       contact.push(result);
 
-      fs.writeFileSync("data/jawaban.json", JSON.stringify(contact));
+      fs.writeFileSync("data/jawaban.json", JSON.stringify(contact, null, 2));
       rl.close();
 
       console.log("Data telah berhasil disimpan ke jawaban.json");

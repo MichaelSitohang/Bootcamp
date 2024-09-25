@@ -1,0 +1,35 @@
+Express-Ejs-Layout
+
+ada metode lain yang hal tersebut dibalik
+kalau membuat halaman web satu kesatuan file
+
+header, nav , main, body, footer dan digabungkan dengan ejs include
+ karena harus panggil satu satu maka ada metode lain
+
+dibuat metode lain yaitu cara kerja dibalik, express ejs layout, yaitu 
+bodynya yang akan kita panggil
+
+cari cara bagaimana cara menggunakannya
+install = $ npm install express-ejs-layouts di NPM (Nodes Package Manager)
+
+
+caranya require express
+
+pertama = membuat file body atau buat file main di views, main.ejs
+lalu kedua =  isi main ejs dengan ! lalu enter dan di bagian <body> 
+masukkan ejs - dan ketikkan output escaped logonya <%- %>, didalamnya ada include(nav), sehingga menjadi
+<%- include ("nav") %> 
+<div class="container"><%- body %></div>
+
+</body> 
+
+
+ketiga = masuk ke 10eel.js
+ubah res.render menjadi res.render("07index02", {
+    nama,
+    layout: "layout/main",
+    title: "Home", });
+
+ubah semua di res.render jadi semua ada layout dan tittle
+
+

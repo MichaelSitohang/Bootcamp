@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, "07index.html"));
   const nama = "index";
-  res.render("07index", { nama, title: "07index" });
+  res.render("07index", { nama, title: "HOME" });
 });
 
 app.get("/about", (req, res) => {
@@ -20,7 +20,7 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
   // res.sendFile(path.resolve(__dirname, "07contact.html"));
-  fs.readFile("./data/jawaban5.json", "utf8", (err, data) => {
+  fs.readFile("data/jawaban5.json", "utf8", (err, data) => {
     if (err) {
       return res.status(500).send("Tidak dapat memuat data");
     }

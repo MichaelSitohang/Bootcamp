@@ -1,0 +1,28 @@
+ini halaman about sifatnya statis, view engine/template engine
+EJS engine, basenya tetap javascript
+memasukkan JS ke html
+ejs pembuatnya dari express,
+
+templateing engine EJS 
+install pertama npm i ejs > 
+lalu dibawah const yaitu : 
+ app.set("view engine", "ejs"); 
+
+bikin file views lalu isi html > ubah file html menjadi ejs di dalam menu folder views > masukin > 
+
+app.get("/contact", (req, res) => {
+  // res.sendFile(path.resolve(__dirname, "07contact.html"));
+  res.render("07contact");
+});
+
+<% const nama = "index" %> selamat datang <%= nama %>
+harus diketikkan seperti ini apabila mau mengetikkan js di html
+
+res.render("07index",{ nama : "Index"}); kalau di JS
+
+bootstrap 
+
+ejs sangup membuat layouting atau templateing
+
+views > layout > lalu file 
+

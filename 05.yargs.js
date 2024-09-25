@@ -21,7 +21,7 @@ yargs.command({
     },
     mobile: {
       describe: "contact mobile phone number",
-      demandOption: false,  // Set mobile to not required, it can be null
+      demandOption: false, // Set mobile to not required, it can be null
       type: "string",
     },
   },
@@ -29,10 +29,18 @@ yargs.command({
     const { name, email, mobile } = argv;
 
     // Jika email tidak diisi, atur ke null
-    const emailValidated = email ? (validator.isEmail(email) ? email : null) : null;
+    const emailValidated = email
+      ? validator.isEmail(email)
+        ? email
+        : null
+      : null;
 
     // Jika nomor telepon tidak diisi, atur ke null
-    const mobileValidated = mobile ? (validator.isMobilePhone(mobile, "id-ID") ? mobile : null) : null;
+    const mobileValidated = mobile
+      ? validator.isMobilePhone(mobile, "id-ID")
+        ? mobile
+        : null
+      : null;
 
     // Membuat objek contact berdasarkan input dari yargs
     const contact = { name, mobile: mobileValidated, email: emailValidated };

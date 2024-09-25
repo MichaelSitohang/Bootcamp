@@ -1,43 +1,18 @@
 [
   {
-    "name": "michaelsitohang",
+    "name": "Michael Sitohang",
     "mobile": "082213193974",
     "email": "michaelsitohang@gmail.com"
   },
   {
-    "name": "sitompul",
-    "mobile": "08399948744",
-    "email": "bimoo@gmail.com"
-  },
-  {
-    "name": "zoldyc",
-    "mobile": "08333222344",
-    "email": "zoldyc@gmail.com"
-  },
-  {
-    "name": "gon",
-    "email": "gon@gmail.com",
-    "mobile": "0999888777"
-  },
-  {
-    "name": "leorio",
-    "email": "leo@gmail.com",
-    "mobile": "090008887777"
-  },
-  {
-    "name": "slyterin",
+    "name": "Slyterin",
     "email": "slyterin@gmail.com",
     "mobile": "07788887777"
   },
   {
-    "name": "gandalf",
+    "name": "Gandalf",
     "email": "gandalf@gmail.com",
     "mobile": "066778887777"
-  },
-  {
-    "name": "Isabella Lee",
-    "mobile": "081234567899",
-    "email": "isabella.lee@example.com"
   },
   {
     "name": "Harry Potter",
@@ -55,19 +30,9 @@
     "email": "ron.weasley@example.com"
   },
   {
-    "name": "Albus Dumbledore",
-    "mobile": "081234567893",
-    "email": "albus.dumbledore@example.com"
-  },
-  {
     "name": "Severus Snape",
     "mobile": "081234567894",
     "email": "severus.snape@example.com"
-  },
-  {
-    "name": "Draco Malfoy",
-    "mobile": "081234567895",
-    "email": "draco.malfoy@example.com"
   },
   {
     "name": "Sirius Black",
@@ -88,5 +53,55 @@
     "name": "Luna Lovegood",
     "mobile": "081234567899",
     "email": "luna.lovegood@example.com"
+  },
+  {
+    "name": "Killua Zoldyc",
+    "mobile": "0832423432421",
+    "email": "killua@gmail.com"
+  },
+  {
+    "name": "Lord Voldemort",
+    "mobile": "0832423432421",
+    "email": "Voldemort@gmail.com"
+  },
+  {
+    "name": "Neville Longbottom",
+    "mobile": "08332348983",
+    "email": "longbottom@gmail.com"
+  },
+  {
+    "name": "Remus Lupin",
+    "mobile": "0847873267",
+    "email": "lupin@gmail.com"
+  },
+  {
+    "name": "Ravenclaw ",
+    "mobile": "0833223349",
+    "email": "ravenclaw@gmail.com"
+  },
+  {
+    "name": "Draco Malfoy",
+    "mobile": "0832341222",
+    "email": "draco@gmail.com"
+  },
+  {
+    "name": "Albus Dombledore",
+    "mobile": "083242358324",
+    "email": "dombledore@gmail.com"
+  },
+  {
+    "name": "Dudley Dursleys",
+    "mobile": "08222334441",
+    "email": "duddley@gmail.com"
+  },
+  {
+    "name": "Petunia Dursley",
+    "mobile": "08232112234",
+    "email": "petunia@gmail.com"
+  },
+  {
+    "name": "Peter Pettigrew",
+    "mobile": "08332323223",
+    "email": "peter@gmail.com"
   }
 ]

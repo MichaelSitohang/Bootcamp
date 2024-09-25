@@ -2,7 +2,7 @@
 const fs = require("fs");
 
 // memanggil file "text.txt atau membuat file.text dengan tulisan saya ganteng"
-fs.writeFileSync("text.txt", "saya ganteng");
+fs.writeFileSync("text.txt", "Michael Sitohang");
 
 // membaca isi file text.txt dan memberitahu apabila ada eror
 fs.readFile("text.txt", "utf-8", (err, data) => {

@@ -1,8 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar Elegan</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+        nav {
+            background-color: #333; /* Warna latar belakang gelap */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bayangan bawah */
+            padding: 10px 20px; /* Padding dalam navbar */
+        }
+
+        nav ul {
+            list-style-type: none; /* Menghilangkan bullet dari daftar */
+            margin: 0; /* Menghilangkan margin dari daftar */
+            padding: 0; /* Menghilangkan padding dari daftar */
+            display: flex; /* Menampilkan item dalam baris */
+            justify-content: space-around; /* Meratakan item secara merata */
+        }
+
+        nav ul li {
+            position: relative; /* Agar pseudo-elemen dapat ditempatkan relatif terhadap item */
+        }
+
+        nav ul li a {
+            color: white; /* Warna teks */
+            text-decoration: none; /* Menghilangkan garis bawah */
+            padding: 10px 15px; /* Jarak dalam tautan */
+            transition: background-color 0.3s, color 0.3s; /* Efek transisi */
+            border-radius: 5px; /* Membuat sudut bulat */
+        }
+
+        nav ul li a:hover {
+            background-color: #555; /* Warna latar belakang saat hover */
+            color: #ffeb3b; /* Warna teks saat hover */
+        }
+
+        /* Mengatur efek hover untuk seluruh item */
+        nav ul li:hover > a {
+            background-color: #555; /* Warna latar belakang item saat hover */
+        }
+    </style>
+</head>
+<body>
+
 <nav>
-    <a href="/">Index</a>
-    <!-- Mengarahkan ke index -->
-    <a href="/about">About</a>
-    <!-- Tetap ke halaman about -->
-    <a href="/contact">Contact</a>
-    <!-- Mengarahkan ke halaman contact -->
-  </nav>
+    <ul>
+        <li><a href="/">Index</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/Pengumuman">Pengumuman</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>

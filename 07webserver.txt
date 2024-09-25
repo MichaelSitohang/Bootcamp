@@ -1,0 +1,21 @@
+tempat untuk mengirimkan response dan menerima data
+web server wadah untuk menerima request dan memberikan response
+request youtube.com
+intenet hanya sebuah jalan, kemana ? itu diketikin di url misal youtube.com
+cth kita pesan gofud, ojol nya API yang ngirim data
+
+web server sebuah perangkat lunak dimana berfungsi menerima Http dan mengirimkan https
+
+node.js http , punya interface dimana bisa digunakan, namun masih bersifat lokal 
+website harus diakses menggunakan jaringan 
+node.js > doc > http > node.js ketikkan const http = require("http");\
+
+listen akan menjalankannya dimana? dan dinputkan ada 2 yaitu port dan hostname
+
+ketik di url web localhost:3000
+
+
+ini halaman about , ini halaman contac
+buat readfile jadi function sederhana namanya render html
+
+coding for kids kidlocoding

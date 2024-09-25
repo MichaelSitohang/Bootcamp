@@ -31,11 +31,11 @@ function addData() {
 // Fungsi untuk menyimpan data ke file
 function saveData(result) {
   try {
-    const file = fs.readFileSync("data/contacts.json", "utf-8");
+    const file = fs.readFileSync("data/jawaban.json", "utf-8");
     const contact = JSON.parse(file);
     contact.push(result);
 
-    fs.writeFileSync("data/contacts.json", JSON.stringify(contact));
+    fs.writeFileSync("data/jawaban.json", JSON.stringify(contact, null, 2));
     console.log("Data telah berhasil disimpan ke jawaban.json");
   } catch (err) {
     console.error("Gagal menyimpan data", err);
