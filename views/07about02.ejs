@@ -121,6 +121,13 @@
         document.getElementById("addContactDialog").style.display = "none";
       }
 
+      // Fungsi untuk membersihkan input pada form tambah kontak
+      function clearAddContactForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("email").value = "";
+      }
+
       // Fungsi konfirmasi sebelum menambahkan kontak
       function confirmAddContact() {
         const name = document.getElementById("name").value;
@@ -147,6 +154,7 @@
           if (response.ok) {
             alert(`Kontak ${name} telah ditambahkan`);
             closeAddContactDialog();
+            clearAddContactForm(); // Bersihkan input setelah kontak ditambahkan
             location.reload(); // Reload halaman untuk memperbarui data
           } else {
             alert("Gagal menambahkan kontak");
