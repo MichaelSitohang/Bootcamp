@@ -90,9 +90,7 @@ app.post("/contact/update", async (req, res) => {
 });
 
 app.get("/product/:prodID/category/:catID", (req, res) => {
-  res.send(
-    `Product ID: ${req.params.prodID} <br> Category ID: ${req.params.catID}`
-  );
+  res.send(`Product ID: ${req.params.prodID} <br> Category ID: ${req.params.catID}`);
 });
 
 app.use("/", (req, res) => {

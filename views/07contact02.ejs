@@ -242,12 +242,20 @@
 
       // Fungsi untuk mencari kontak berdasarkan nama
       function searchContacts() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
-        const rows = document.querySelectorAll("#contactTableBody tr");
-        
-        rows.forEach((row) => {
-          const nameCell = row.cells[1].textContent.toLowerCase();
-          row.style.display = nameCell.includes(input) ? "" : "none"; // Menyembunyikan atau menampilkan baris
+        const searchValue = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const contactRows = document.querySelectorAll("#contactTableBody tr");
+
+        contactRows.forEach((row) => {
+          const name = row
+            .querySelector("td:nth-child(2)")
+            .innerText.toLowerCase();
+          if (name.includes(searchValue)) {
+            row.style.display = ""; // Tampilkan baris jika cocok
+          } else {
+            row.style.display = "none"; // Sembunyikan baris jika tidak cocok
+          }
         });
       }
     </script>
