@@ -3,62 +3,261 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 0;
-        color: #333;
-      }
-
-      /* Konten Styles */
-      .about-me {
-        display: flex; /* Menggunakan flexbox untuk tata letak */
-        align-items: center; /* Meratakan item secara vertikal */
-        max-width: 800px; /* Lebar maksimal untuk konten */
-        margin: 20px auto; /* Meratakan konten di tengah */
-        background-color: #fff; /* Warna latar belakang putih */
-        padding: 20px; /* Memberikan padding di dalam konten */
-        border-radius: 8px; /* Sudut yang membulat */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-      }
-
-      img {
-        border-radius: 50%; /* Lingkaran untuk gambar */
-        width: 120px; /* Ukuran gambar */
-        height: 120px; /* Ukuran gambar */
-        object-fit: cover; /* Menjaga proporsi gambar */
-        margin-right: 20px; /* Memberikan jarak antara gambar dan teks */
-      }
-
-      h1 {
-        font-size: 24px; /* Ukuran font untuk judul */
-        margin-bottom: 10px; /* Jarak bawah judul */
-      }
-
-      p {
-        font-size: 16px; /* Ukuran font untuk paragraf */
-        line-height: 1.5; /* Jarak antar baris */
-        margin: 0; /* Menghilangkan margin untuk paragraf */
-      }
-    </style>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <!-- Konten About Me -->
-    <div class="about-me">
-      <img src="Image.jpg" alt="Profile Picture" />
-      <div>
-        <h1>Michael Sitohang</h1>
-        <p>
-          Halo! Nama saya Michael Sitohang. Saya seorang pengembang web yang
-          suka belajar teknologi baru dan selalu bersemangat untuk meningkatkan
-          keterampilan saya. Saya telah bekerja dengan berbagai bahasa
-          pemrograman, termasuk JavaScript, HTML, CSS, dan Node.js. Di waktu
-          luang saya, saya suka membaca buku dan mengeksplorasi dunia teknologi.
-        </p>
-      </div>
+    <h1>Contact</h1>
+    <h2>Berikut data yang terdapat di halaman Contact</h2>
+
+    <!-- Tombol untuk menambahkan kontak baru -->
+    <button onclick="toggleAddContactDialog()">Tambah Kontak</button>
+
+    <!-- Dialog untuk menambahkan kontak baru -->
+    <div id="addContactDialog" style="display: none">
+      <h3>Tambah Kontak Baru</h3>
+      <form id="addContactForm">
+        <input type="text" id="name" placeholder="Nama" required />
+        <input type="text" id="mobile" placeholder="Telepon" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <button type="button" onclick="confirmAddContact()">
+          Tambah Kontak
+        </button>
+        <button type="button" onclick="toggleAddContactDialog()">Batal</button>
+      </form>
     </div>
+
+    <!-- Dialog untuk memperbarui kontak -->
+    <div id="updateForm" style="display: none">
+      <h3>Perbarui Kontak</h3>
+      <form id="updateContactForm">
+        <input type="hidden" id="oldName" />
+        <input type="text" id="updateName" placeholder="Nama" required />
+        <input type="text" id="updateMobile" placeholder="Telepon" required />
+        <input type="email" id="updateEmail" placeholder="Email" required />
+        <button type="button" onclick="updateContact()">Perbarui Kontak</button>
+        <button type="button" onclick="closeUpdateForm()">Batal</button>
+      </form>
+    </div>
+
+    <!-- Input pencarian -->
+    <div style="margin-bottom: 10px">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Cari kontak berdasarkan nama"
+        onkeyup="searchContacts()"
+      />
+    </div>
+
+    <!-- Div pembungkus tabel untuk scrollbar -->
+    <div style="max-height: 300px; overflow-y: auto">
+      <table border="1" cellpadding="10" cellspacing="0" style="width: 100%">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Aksi</th>
+            <th>Detail Kontak</th>
+          </tr>
+        </thead>
+        <tbody id="contactTableBody">
+          <% contacts.forEach((contact, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= contact.name %></td>
+            <td>
+              <button
+                onclick="toggleDetail('<%= contact.name %>', '<%= contact.mobile %>', '<%= contact.email %>', this)"
+              >
+                Lihat Detail
+              </button>
+              <button
+                onclick="showUpdateForm('<%= contact.name %>', '<%= contact.mobile %>', '<%= contact.email %>')"
+              >
+                Update
+              </button>
+              <button onclick="confirmDeleteContact('<%= contact.name %>')">
+                Delete
+              </button>
+            </td>
+            <td>
+              <span
+                id="details-<%= contact.name %>"
+                style="display: none"
+              ></span>
+              <button
+                id="close-<%= contact.name %>"
+                style="display: none"
+                onclick="closeDetail('<%= contact.name %>')"
+              >
+                Tutup
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Kotak untuk menampilkan jumlah kontak -->
+    <div id="contactCount" style="margin-top: 10px">
+      <strong>Jumlah Kontak: </strong><span><%= contacts.length %></span>
+    </div>
+
+    <script>
+      // Fungsi untuk membuka dan menutup dialog tambah kontak
+      function toggleAddContactDialog() {
+        const dialog = document.getElementById("addContactDialog");
+        if (dialog.style.display === "none") {
+          dialog.style.display = "block"; // Tampilkan dialog
+        } else {
+          dialog.style.display = "none"; // Sembunyikan dialog
+        }
+      }
+
+      // Fungsi untuk menutup dialog tambah kontak
+      function closeAddContactDialog() {
+        document.getElementById("addContactDialog").style.display = "none";
+      }
+
+      // Fungsi konfirmasi sebelum menambahkan kontak
+      function confirmAddContact() {
+        const name = document.getElementById("name").value;
+        const mobile = document.getElementById("mobile").value;
+        const email = document.getElementById("email").value;
+
+        const confirmation = confirm(
+          `Apakah Anda yakin ingin menambahkan kontak dengan nama: ${name}?`
+        );
+        if (confirmation) {
+          addContact(name, mobile, email); // Lanjutkan menambahkan kontak
+        }
+      }
+
+      // Fungsi untuk menambahkan kontak baru
+      function addContact(name, mobile, email) {
+        fetch("/contact/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, mobile, email }),
+        }).then((response) => {
+          if (response.ok) {
+            alert(`Kontak ${name} telah ditambahkan`);
+            closeAddContactDialog();
+            location.reload(); // Reload halaman untuk memperbarui data
+          } else {
+            alert("Gagal menambahkan kontak");
+          }
+        });
+      }
+
+      // Fungsi konfirmasi sebelum menghapus kontak
+      function confirmDeleteContact(name) {
+        const confirmation = confirm(
+          `Apakah Anda yakin ingin menghapus kontak ${name}?`
+        );
+        if (confirmation) {
+          deleteContact(name); // Lanjutkan ke proses penghapusan
+        }
+      }
+
+      // Fungsi untuk menghapus kontak
+      function deleteContact(name) {
+        fetch(`/contact/delete/${name}`, {
+          method: "DELETE",
+        }).then((response) => {
+          if (response.ok) {
+            alert(`Kontak ${name} telah dihapus`);
+            location.reload(); // Reload halaman untuk memperbarui data
+          } else {
+            alert("Gagal menghapus kontak");
+          }
+        });
+      }
+
+      // Fungsi untuk memperbarui kontak
+      function showUpdateForm(name, mobile, email) {
+        document.getElementById("oldName").value = name; // Menyimpan nama lama untuk pembaruan
+        document.getElementById("updateName").value = name;
+        document.getElementById("updateMobile").value = mobile;
+        document.getElementById("updateEmail").value = email;
+        document.getElementById("updateForm").style.display = "block"; // Menampilkan form pembaruan
+      }
+
+      function closeUpdateForm() {
+        document.getElementById("updateForm").style.display = "none"; // Menyembunyikan form pembaruan
+      }
+
+      function updateContact() {
+        const oldName = document.getElementById("oldName").value;
+        const name = document.getElementById("updateName").value;
+        const mobile = document.getElementById("updateMobile").value;
+        const email = document.getElementById("updateEmail").value;
+
+        const confirmation = confirm(
+          `Apakah Anda yakin ingin memperbarui kontak menjadi ${name}?`
+        );
+        if (confirmation) {
+          fetch("/contact/update", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ oldName, name, mobile, email }),
+          }).then((response) => {
+            if (response.ok) {
+              alert(`Kontak ${name} telah diperbarui`);
+              closeUpdateForm();
+              location.reload(); // Reload halaman untuk memperbarui data
+            } else {
+              alert("Gagal memperbarui kontak");
+            }
+          });
+        }
+      }
+
+      // Fungsi untuk menampilkan dan menyembunyikan detail kontak
+      function toggleDetail(name, mobile, email, button) {
+        const detailsSpan = document.getElementById(`details-${name}`);
+        if (detailsSpan.style.display === "none") {
+          detailsSpan.innerHTML = `Mobile: ${mobile} <br> Email: ${email}`;
+          detailsSpan.style.display = "block";
+          button.innerHTML = "Sembunyikan Detail"; // Ubah teks tombol menjadi "Sembunyikan Detail"
+        } else {
+          detailsSpan.style.display = "none";
+          button.innerHTML = "Lihat Detail"; // Kembalikan teks tombol
+        }
+      }
+
+      // Fungsi untuk menutup detail kontak
+      function closeDetail(name) {
+        const detailsSpan = document.getElementById(`details-${name}`);
+        detailsSpan.style.display = "none";
+        const button = document.querySelector(`button[onclick*="${name}"]`);
+        button.innerHTML = "Lihat Detail"; // Kembalikan teks tombol
+      }
+
+      // Fungsi untuk mencari kontak berdasarkan nama
+      function searchContacts() {
+        const searchValue = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const contactRows = document.querySelectorAll("#contactTableBody tr");
+
+        contactRows.forEach((row) => {
+          const name = row
+            .querySelector("td:nth-child(2)")
+            .innerText.toLowerCase();
+          if (name.includes(searchValue)) {
+            row.style.display = ""; // Tampilkan baris jika cocok
+          } else {
+            row.style.display = "none"; // Sembunyikan baris jika tidak cocok
+          }
+        });
+      }
+    </script>
   </body>
 </html>

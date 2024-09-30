@@ -1,0 +1,62 @@
+pelajari sql, bahas data dan bahas penggunaan
+w3scholl, e learning WGS
+postgre adalah salah satu toolsnya, lumayan berat . tujuannya adalah porto
+
+
+apa yang bikin postgre itu berat ? 
+
+diminta buat aplikasi kemahasiswaaan data basenya apa dan bahasanya apa ? 
+kalau kemahasiswaan my sql saja cukup, karena permintaannya sektoral hanya  terbatas pada mahasiswa dan pekerja, tidak banyak akses dan hanya melihat hal hal tertentu
+
+kalau yang gede traffic data misalnya location, mapsnya, disekitarnya ada apa , banyak yang dimita dalam waktu yang singkat.
+
+postgresql, peran data base sangat penting untuk manajemen pengelolaan data.
+postgre punya fitur yang canggih dan  bisa menggunakan semua fitur secara gratis
+
+postgre data base yang sifatnya open source 
+RDBMS
+
+postgre history  1986 ,  michael stonebreaker, postgreSQL dan postgres adalah sama
+1996
+
+postgreSQL support language phyton javascript c/c++ ruby PHP Perl dll , tidak usah khawatir dengan ketidakcocokan karena language support nya banyak
+
+features /fitur postgre, 
+support async replication - replicate the database asynchronously
+data integritas
+sppor inheritance
+lock mechanism
+support non relational atau JSON
+point in time rcovery
+support procedural language
+ada save point 
+table space
+
+fingsi postgre , silahkan dipelajari ddl dml dcl
+ddl - mendefinisikan data, misalnya mendefinisikan 
+dml - memanipulasi isinya inset update
+dcl - sama seperti metode commit
+
+postgre tipe data
+ada bollean
+caracter
+numeric
+tempporal
+array 
+JSON
+UUID
+Special Data Type
+
+postgre kelebihan
+opensource dan gratis
+large scale - scala besar, dimana bisa digunakan karena bisa menghandle banyak data transaksi
+easy clone - 
+SMR - master diubah clone tidak berupah
+MMR  - master berubah clone berubah
+self development - kita bisa mendevelope 
+documentation - dokumentasi sangat penting 
+
+kekurangan
+berat, slow performance, karena banyaknya fitur 
+komunitasnya sedikit membuat popularitasnya menjadi kurang
+
