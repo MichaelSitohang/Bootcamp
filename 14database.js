@@ -16,22 +16,23 @@ app.use((req, res, next) => {
   next();
 });
 
-// PostgreSQL - Tambah Kontak
-app.post("/contact/add", async (req, res) => {
-  const { name, mobile, email } = req.body;
-
-  try {
-    const newContact = await pool.query(
-      `INSERT INTO contacts (name, mobile, email) VALUES ($1, $2, $3) RETURNING *`,
-      [name, mobile, email]
-    );
-    res.status(200).send(`Kontak ${newContact.rows[0].name} telah ditambahkan`);
-  } catch (error) {
-    console.error("Gagal menambahkan kontak:", error);
-    res.status(500).send("Gagal menambahkan kontak");
-  }
+//untuk menampilkan halaman index
+app.get("/", (req, res) => {
+  res.render("07index02", {
+    layout: "layout/main",
+    title: "Home",
+  });
 });
 
+//untuk menampilkan halaman about
+app.get("/about", (req, res) => {
+  res.render("07about02", {
+    layout: "layout/main",
+    title: "About",
+  });
+});
+
+// untuk menampilakan halaman contac
 // PostgreSQL - Tampilkan Semua Kontak
 app.get("/contact", async (req, res) => {
   try {
@@ -44,6 +45,22 @@ app.get("/contact", async (req, res) => {
   } catch (error) {
     console.error("Gagal memuat kontak:", error);
     res.status(500).send("Gagal memuat kontak");
+  }
+});
+
+//PostgreSQL - Tambah Kontak
+app.post("/contact/add", async (req, res) => {
+  const { name, mobile, email } = req.body;
+
+  try {
+    const newContact = await pool.query(
+      `INSERT INTO contacts (name, mobile, email) VALUES ($1, $2, $3) RETURNING *`,
+      [name, mobile, email]
+    );
+    res.status(200).send(`Kontak ${newContact.rows[0].name} telah ditambahkan`);
+  } catch (error) {
+    console.error("Gagal menambahkan kontak:", error);
+    res.status(500).send("Gagal menambahkan kontak");
   }
 });
 
@@ -90,7 +107,9 @@ app.post("/contact/update", async (req, res) => {
 });
 
 app.get("/product/:prodID/category/:catID", (req, res) => {
-  res.send(`Product ID: ${req.params.prodID} <br> Category ID: ${req.params.catID}`);
+  res.send(
+    `Product ID: ${req.params.prodID} <br> Category ID: ${req.params.catID}`
+  );
 });
 
 app.use("/", (req, res) => {
