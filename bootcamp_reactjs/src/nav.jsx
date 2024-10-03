@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 //Buat css navigasi
 const styleNav = {
@@ -22,7 +21,8 @@ const styleNavT = {
 };
 
 // Buat menampilkan elemen
-const element = (
+const Nav = ()=>{
+  return(
   <div>
     <nav style={styleNav}>
       <a href="/" style={styleNavT}>
@@ -35,9 +35,8 @@ const element = (
         Contact
       </a>
     </nav>
-
-    <h1>This is React</h1>
   </div>
-);
+  )
+};
 
-ReactDOM.render(element, document.getElementById("root"));
+export default Nav;
