@@ -14,9 +14,7 @@ app.use(expressLayout);
 
 app.get("/", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, "07index.html"));
-  const nama = "index";
   res.render("07index02", {
-    nama,
     layout: "layout/main",
     title: "Home",
   });
