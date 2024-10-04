@@ -1,0 +1,143 @@
+// fungsi props dengan function untuk menjalankan data
+
+import React from "react";
+import commentsData from "./commentsData";
+
+// Komponen untuk menampilkan komentar
+const Comments = () => {
+  return (
+    <div className="ui comments">
+      <h3 className="ui dividing header">Comments</h3>
+      {commentsData.map((commentsData, index) => (
+        <div className="comment" key={index}>
+          <a className="avatar">
+            <img src={commentsData.avatar} alt="Avatar" />
+          </a>
+
+          <div className="content">
+            <a className="author">{commentsData.author}</a>
+            <div className="metadata">
+              <span className="date">{commentsData.date}</span>
+            </div>
+            <div className="text">{commentsData.Comments}</div>
+            <div className="actions">
+              <a className="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Comments;
+
+
+//// fungsi props dengan class untuk menjalankan data
+
+import React, { Component } from "react";
+import commentsData from "./commentsData";
+
+// Komponen Class untuk menampilkan komentar
+class CommentsClass extends Component {
+  render() {
+    return (
+      <div className="ui comments">
+        <h3 className="ui dividing header">Comments</h3>
+        {commentsData.map((comment, index) => (
+          <div className="comment" key={index}>
+            <a className="avatar">
+              <img src={comment.avatar} alt="Avatar" />
+            </a>
+
+            <div className="content">
+              <a className="author">{comment.author}</a>
+              <div className="metadata">
+                <span className="date">{comment.date}</span>
+              </div>
+              <div className="text">{comment.Comments}</div>
+              <div className="actions">
+                <a className="reply">Reply</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default CommentsClass;
+
+
+
+//Data yang ada untuk dijalankan
+// commentsData.js
+import { faker } from '@faker-js/faker'; 
+
+const commentsData = [
+  {
+    author: "Matt",
+    avatar: faker.image.avatar(),
+    date: "Today at 5:42PM",
+    Comments: "How artistic!",
+  },
+  {
+    author: "Elliot Fu",
+    avatar: faker.image.avatar(),
+    date: "Yesterday at 12:30AM",
+    Comments: "This has been very useful for my research. Thanks as well!",
+  },
+  {
+    author: "Jenny Hess",
+    avatar: faker.image.avatar(),
+    date: "Just now",
+    Comments: "Elliot you are always so right :)",
+  },
+  {
+    author: "Joe Henderson",
+    avatar: faker.image.avatar(),
+    date: "5 days ago",
+    Comments: "Dude, this is awesome. Thanks so much!",
+  },
+  {
+    author: "Veronica",
+    avatar: faker.image.avatar(),
+    date: "3 days ago",
+    Comments: "This article really helped me understand the topic. Thank you!",
+  },
+  {
+    author: "Chris Johnson",
+    avatar: faker.image.avatar(),
+    date: "1 week ago",
+    Comments: "I found this post very insightful and engaging.",
+  },
+  {
+    author: "Laura Benson",
+    avatar: faker.image.avatar(),
+    date: "2 days ago",
+    Comments: "Great insights, I'm definitely going to implement these ideas.",
+  },
+  {
+    author: "James Lee",
+    avatar: faker.image.avatar(),
+    date: "4 hours ago",
+    Comments: "This is exactly what I was looking for, thanks!",
+  },
+  {
+    author: "Sophia Anderson",
+    avatar: faker.image.avatar(),
+    date: "2 weeks ago",
+    Comments: "I really appreciate the thorough explanation in this post.",
+  },
+  {
+    author: "Michael Brown",
+    avatar: faker.image.avatar(),
+    date: "Just now",
+    Comments: "Well written and very easy to follow. Thanks for sharing!",
+  },
+];
+
+export default commentsData;
+
+
