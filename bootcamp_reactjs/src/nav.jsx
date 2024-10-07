@@ -1,4 +1,5 @@
 import React from "react";
+import RealTimeClock from "./realTimeClock";
 
 //Buat css navigasi
 const styleNav = {
