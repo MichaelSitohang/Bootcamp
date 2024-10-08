@@ -1,0 +1,91 @@
+/* Container utama */
+.container {
+    max-width: 800px; /* Maksimal lebar kontainer */
+    margin: auto; /* Pusatkan kontainer */
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Gaya font */
+    background-color: #f4f4f4; /* Warna latar belakang */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan */
+  }
+  
+  /* Input dan tombol pencarian */
+  .input-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none; /* Hilangkan outline default */
+    transition: border-color 0.3s; /* Transisi border */
+  }
+  
+  input:focus {
+    border-color: #ff0000; /* Warna border saat fokus */
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000; /* Warna merah YouTube */
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+  }
+  
+  button:hover {
+    background-color: #cc0000; /* Warna gelap saat hover */
+  }
+  
+  /* Video Player */
+  .video-player {
+    margin-bottom: 20px;
+    border-radius: 8px; /* Sudut melengkung pada video player */
+    overflow: hidden; /* Sembunyikan bagian yang keluar */
+  }
+  
+  .video-player iframe {
+    width: 100%; /* Lebar 100% dari kontainer */
+    height: 315px; /* Tinggi tetap */
+    border: none; /* Hilangkan border default */
+  }
+  
+  /* Related Videos */
+  .related-videos {
+    display: grid; /* Menggunakan grid untuk tampilan responsif */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Grid dinamis */
+    gap: 10px; /* Jarak antar video */
+  }
+  
+  .related-video {
+    cursor: pointer;
+    text-align: center; /* Pusatkan teks */
+    border-radius: 8px; /* Sudut melengkung */
+    overflow: hidden; /* Sembunyikan bagian yang keluar */
+    transition: transform 0.3s; /* Transisi transformasi */
+  }
+  
+  .related-video:hover {
+    transform: scale(1.05); /* Zoom saat hover */
+  }
+  
+  .related-video img {
+    width: 100%; /* Lebar 100% dari elemen kontainer */
+    border-radius: 8px; /* Sudut melengkung pada gambar */
+  }
+  
+  .related-video p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333; /* Warna teks */
+    padding: 0 5px; /* Padding samping */
+  }
+  

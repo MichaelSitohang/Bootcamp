@@ -3,26 +3,28 @@
 
 import Navbar from "./nav";
 // import Comments from "./comments";
-import Data from "./props";
-import CommentsClass from "./commentsClass";
-import Counting from "./stateCount";
-import RealTimeClock from "./realTimeClock";
-import InputData from "./Input";
-import UnsplashSearch from "./apiRequest";
+// import Data from "./props";
+// import CommentsClass from "./commentsClass";
+// import Counting from "./stateCount";
+// import RealTimeClock from "./realTimeClock";
+// import InputData from "./Input";
+// import UnsplashSearch from "./apiRequest";
+import YouTubeSearch from "./youtubeAPI";
+
 
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <RealTimeClock />
-      <UnsplashSearch/>
-      <InputData/>
+      {/* <RealTimeClock /> */}
+      {/* <UnsplashSearch/> */}
+      {/* <InputData/> */}
       {/* <Comments /> */}
-      <Data />
-      <CommentsClass />
-      <Counting />
-      
+      {/* <Data /> */}
+      {/* <CommentsClass /> */}
+      {/* <Counting /> */}
+      <YouTubeSearch/>
     </div>
   );
 }
