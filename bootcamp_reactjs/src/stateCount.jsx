@@ -1,4 +1,5 @@
 import React from "react";
+import "./YoutubeSearch.css";
 import ReactDOM from "react-dom/client";
 
 class Counting extends React.Component {
@@ -13,7 +14,11 @@ class Counting extends React.Component {
       <div>
         <h1>Jumlah Like {this.state.count}</h1>
         <button
-          onClick={() => this.setState({count: this.state.count + 1,})} > {" "} Like
+          className="button-youtube"
+          onClick={() => this.setState({ count: this.state.count + 1 })}
+        >
+          {" "}
+          Like
         </button>
       </div>
     );

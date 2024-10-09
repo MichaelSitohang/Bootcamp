@@ -25,7 +25,6 @@ class RealTimeClock extends Component {
   render() {
     return (
       <div>
-        <h2>Real-Time Clock</h2>
         <h2>{this.state.time}</h2>
       </div>
     );
