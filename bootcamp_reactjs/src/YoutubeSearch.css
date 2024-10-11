@@ -21,7 +21,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    outline: none; /* Hilangkan outline default */
+    outline: blueviolet; /* Hilangkan outline default */
     transition: border-color 0.3s; /* Transisi border */
   }
   

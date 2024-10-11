@@ -5,6 +5,9 @@ import YouTubeSearch from "./youtubeAPI";
 import About from "./1about";
 import Contact from "./1contact";
 import Home from "./1home";
+import { Provider } from 'react-redux';
+import store from "./store";
+import Counter from "./counter";
 
 function App() {
   return (
@@ -17,6 +20,10 @@ function App() {
         <Route path="/youtube" element={<YouTubeSearch />} />
       </Routes>
     </Router>
+
+     
+    
+
   );
 }
 
