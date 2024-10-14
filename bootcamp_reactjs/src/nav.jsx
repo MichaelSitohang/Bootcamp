@@ -19,6 +19,9 @@ const Nav = () => {
           <a className="mr-6" href="/youtube">
             Youtube
           </a>
+          <a className="mr-6" href="/form">
+            Form Page
+          </a>
         </div>
 
         <div className="flex items-center">

@@ -5,25 +5,23 @@ import YouTubeSearch from "./youtubeAPI";
 import About from "./1about";
 import Contact from "./1contact";
 import Home from "./1home";
-import { Provider } from 'react-redux';
-import store from "./store";
-import Counter from "./counter";
+import FormPage from "./1formPage";
+// import { Provider } from "react-redux";
+import store from "./reducer";
+
 
 function App() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" element={< Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/youtube" element={<YouTubeSearch />} />
+        <Route path="/form" element={<FormPage />} />
       </Routes>
     </Router>
-
-     
-    
-
   );
 }
 
